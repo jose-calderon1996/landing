@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descargar mi App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f3f4f6;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    p {
+      color: #555;
+      margin-bottom: 30px;
+      text-align: center;
+      max-width: 600px;
+    }
+    .download-btn {
+      background-color: #28a745;
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .download-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenido a Mi App</h1>
+  <p>Descarga nuestra app para Android y disfruta de todas las funcionalidades que tenemos para ti. Actualmente, solo disponible para dispositivos Android.</p>
+
+  <!-- Contenedor del botón -->
+  <div id="download-container"></div>
+
+  <script>
+    // Detectar el sistema operativo
+    function isAndroid() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      return /android/i.test(userAgent);
+    }
+
+    // Mostrar el botón de descarga solo si es Android
+    const downloadContainer = document.getElementById('download-container');
+    if (isAndroid()) {
+      const downloadButton = document.createElement('a');
+      downloadButton.href = 'ruta-a-tu-apk/app.apk'; // Ruta de tu archivo APK
+      downloadButton.textContent = 'Descargar App para Android';
+      downloadButton.className = 'download-btn';
+      downloadContainer.appendChild(downloadButton);
+    }
+  </script>
+</body>
+</html>
